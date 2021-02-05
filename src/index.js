@@ -4,12 +4,23 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
-
+/*
+Nota -Em classes JavaScript, você sempre precisa chamar super ao definir o construtor de uma subclasse.
+Todas os componentes de classe React que possuem um método constructor devem iniciá-lo com uma chamada super (props).
+*/
 class Square extends React.Component {
+  constructor(props){
+    super(props);
+    this.state = {
+      value: null,
+
+    };
+  }
   render() {
     return (
-      <button className="square" onClick={()=>{alert('click');}}>
-        {this.props.value}
+      <button className="square"
+      onClick={() => this.setState({value: 'X'})}>
+        {this.state.value}
       </button>
     );
   }
